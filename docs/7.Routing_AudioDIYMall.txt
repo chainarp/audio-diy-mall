@@ -1,0 +1,160 @@
+สรุปความรู้ Route ของ Next.js App Router
+📂 โครงสร้าง Route และไฟล์พิเศษ
+ไฟล์พิเศษที่ Next.js รู้จัก
+
+    layout.jsx - โครงสร้างที่ wrap หน้าเว็บ (Header, Footer, Sidebar)
+    page.jsx - เนื้อหาหลักของแต่ละหน้า (URL endpoint)
+    loading.jsx - UI ตอน loading (Suspense Boundary)
+    error.jsx - UI ตอนเกิด error
+    not-found.jsx - UI สำหรับหน้า 404
+
+การตั้งชื่อโฟลเดอร์
+
+    โฟลเดอร์ธรรมดา = URL path เช่น products/ → /products
+    [id] = Dynamic route เช่น products/[id] → /products/123
+    (folder) = Route Group (ไม่มีผลต่อ URL) ใช้จัดกลุ่ม layout
+
+🎯 กฎสำคัญของ Layout และ Page
+กฎเหล็กของ layout.jsx
+
+    Root Layout (app/layout.jsx) ต้องมี <html> และ <body> เท่านั้น
+    Layout ลูก (ทุกตัวที่ไม่ใช่ root) ห้ามมี <html> และ <body>
+    Layout ลูกใช้ <div> หรือ <section> แทน
+    Layout ทุกตัวต้องรับ children prop และ render มัน
+
+กฎของ page.jsx
+
+    ไม่มี <html> หรือ <body> เลย
+    ใช้ <main>, <div>, <section> เป็น wrapper
+    ต้อง export default function component
+    หนึ่ง route มีได้แค่ หนึ่ง page.jsx
+
+⚠️ Hydration Error - สิ่งที่ต้องหลีกเลี่ยง
+สาเหตุหลักที่ทำให้เกิด Hydration Error
+1. HTML Tag ซ้อนผิด
+
+    ❌ <html> หรือ <body> ซ้ำกัน (มีมากกว่า 1 ที่)
+    ❌ <p> ซ้อน <div> (invalid HTML)
+    ❌ <div> อยู่ใน <p> (browser จะแก้ไขเอง)
+
+2. ค่าที่เปลี่ยนแปลงระหว่าง Server กับ Client
+
+    ❌ Date.now() หรือ Math.random() ใน render
+    ❌ ตรวจสอบ typeof window !== 'undefined' ใน JSX
+    ❌ การ format วันที่ที่ขึ้นกับ timezone ของผู้ใช้
+
+3. className หรือ attribute ไม่ตรงกัน
+
+    ❌ Server render มี className แต่ Client ไม่มี
+    ❌ CSS-in-JS ที่สร้าง class name แบบ dynamic
+
+4. Browser Extension
+
+    Extension บางตัวแก้ไข DOM ก่อน React hydrate
+
+✅ Best Practices
+1. โครงสร้าง Layout ที่ถูกต้อง
+
+app/
+├── layout.jsx              # Root: มี <html><body>
+├── page.jsx               # Home page
+├── (public)/
+│   ├── layout.jsx         # ไม่มี <html><body>
+│   ├── products/
+│   │   ├── page.jsx       # /products
+│   │   └── [id]/
+│   │       └── page.jsx   # /products/123
+│   └── cart/
+│       └── page.jsx       # /cart
+└── (dashboard)/
+    ├── layout.jsx         # Dashboard layout
+    └── vendor/
+        └── products/
+            └── page.jsx   # /vendor/products
+
+2. การใช้ Layout อย่างมีประสิทธิภาพ
+
+    Root Layout: global styles, font, metadata
+    Public Layout: navbar สำหรับลูกค้า, footer
+    Dashboard Layout: sidebar, admin navbar
+    แยก Layout ตาม User Role: (customer), (vendor), (admin)
+
+3. หลีกเลี่ยง Hydration Error
+
+✅ ทำ:
+
+    ใช้ useEffect สำหรับโค้ดที่รันแค่ client-side
+    ใช้ 'use client' directive เมื่อต้องใช้ browser APIs
+    เช็ค window/document ใน useEffect เท่านั้น
+    ใช้ suppressHydrationWarning กับ element ที่จำเป็น (เช่น time)
+
+❌ ห้าม:
+
+    วาง <html> หรือ <body> ในหลายที่
+    ใช้ Math.random() หรือ Date.now() ตอน render
+    ใช้ if (typeof window !== 'undefined') ใน JSX
+    วาง <div> ใน <p> หรือ block element ใน inline element
+
+4. Dynamic Routes
+
+    ใช้ [id] สำหรับ single parameter
+    ใช้ [...slug] สำหรับ catch-all routes
+    ใช้ [[...slug]] สำหรับ optional catch-all
+
+5. Route Groups
+
+    ใช้ (folder) เพื่อจัดกลุ่มโดยไม่กระทบ URL
+    เหมาะสำหรับแยก layout ตาม role หรือ section
+    ช่วยให้โค้ดเป็นระเบียบและบำรุงรักษาง่าย
+
+6. Loading และ Error States
+
+    ใส่ loading.jsx ใน route ที่โหลดข้อมูลนาน
+    ใส่ error.jsx เพื่อ catch errors gracefully
+    ใช้ not-found.jsx สำหรับ custom 404 page
+
+7. Metadata และ SEO
+
+    export metadata object ใน layout หรือ page
+    ใช้ generateMetadata สำหรับ dynamic metadata
+    ตั้ง title, description, og:image ให้ครบ
+
+🗺️ User Journey กับ Routes
+
+จากบทเรียนของคุณ สามารถแปลงเป็น route structure ได้:
+Customer Journey Routes
+
+    / - Homepage
+    /products/[id] - Product Detail
+    /cart - Shopping Cart
+    /checkout - Checkout
+    /orders/success/[id] - Order Success
+    /profile/orders - Order History
+
+Vendor Journey Routes
+
+    /vendor/dashboard - Vendor Dashboard
+    /vendor/settings - Store Settings
+    /vendor/products - Inventory List
+    /vendor/products/new - Add New Product
+    /vendor/products/[id]/edit - Edit Product
+
+Layout Strategy
+
+    app/layout.jsx - Root (Global)
+    app/(public)/layout.jsx - Customer Layout (Navbar + Footer)
+    app/(dashboard)/layout.jsx - Vendor Layout (Sidebar + Top bar)
+
+🎓 สรุปสั้น
+
+    Root Layout เท่านั้นที่มี <html><body>
+    Layout ลูกใช้ <div> หรือ element อื่น
+    Page ห้ามมี <html><body> เด็ดขาด
+    ใช้ Route Groups (folder) จัดกลุ่ม layout
+    Dynamic Routes ใช้ [param]
+    หลีกเลี่ยงค่าที่เปลี่ยนระหว่าง server-client
+    ตั้งชื่อไฟล์ให้ถูกต้อง: page.jsx, layout.jsx
+
+Route structure ที่ดีจะทำให้โค้ดเป็นระเบียบ, บำรุงรักษาง่าย, และ SEO ดี!
+
+อด

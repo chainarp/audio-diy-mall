@@ -1,0 +1,26 @@
+[
+  {
+    "id": "loc_a1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6",
+    "storeId": "store_1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+    "type": "BOX",
+    "label": "A-01: Power Tubes",
+    "description": "กล่องสำหรับเก็บหลอด Power Tubes ขนาดใหญ่ เช่น KT88, EL34",
+    "createdAt": "2025-09-24T11:00:00Z"
+  },
+  {
+    "id": "loc_b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7",
+    "storeId": "store_1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+    "type": "SHELF",
+    "label": "S-01: Transformers",
+    "description": "ชั้นวาง Output / Power Transformer",
+    "createdAt": "2025-09-24T11:05:00Z"
+  },
+  {
+    "id": "loc_c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
+    "storeId": "store_2c8b7f3b-5e4a-4d2c-8a9f-c1f3b2d1e0a9",
+    "type": "DRAWER",
+    "label": "D-05: Capacitors",
+    "description": "ลิ้นชักเก็บ Capacitor ค่าต่างๆ",
+    "createdAt": "2025-09-23T15:00:00Z"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "store_1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+    "ownerId": "user_216d8b94-1a2b-4d47-9e36-ace843477891",
+    "name": "Bangkok Tube Sound",
+    "slug": "bangkok-tube-sound",
+    "logoUrl": "/images/logos/bkk-tube-sound.png",
+    "tagline": "หลอดวินเทจและอุปกรณ์คัดเกรดสำหรับนัก DIY",
+    "description": "เราคือผู้เชี่ยวชาญด้านหลอดวิทยุวินเทจ หายาก และอุปกรณ์ DIY คุณภาพสูง พร้อมให้คำปรึกษาสำหรับโปรเจกต์ของคุณ",
+    "contactEmail": "contact@bkktube.com",
+    "isActive": true,
+    "createdAt": "2025-09-24T10:00:00Z",
+    "updatedAt": "2025-09-24T10:00:00Z"
+  },
+  {
+    "id": "store_2c8b7f3b-5e4a-4d2c-8a9f-c1f3b2d1e0a9",
+    "ownerId": "user_a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+    "name": "Chiang Mai Audio Craft",
+    "slug": "chiangmai-audio-craft",
+    "logoUrl": "/images/logos/cm-audio-craft.png",
+    "tagline": "งานฝีมือด้านเสียงจากล้านนา",
+    "description": "จำหน่ายอุปกรณ์เครื่องเสียงแฮนด์เมดและหลอดวิทยุที่ผ่านการทดสอบอย่างดีจากเชียงใหม่",
+    "contactEmail": "support@cmaudiocraft.co",
+    "isActive": true,
+    "createdAt": "2025-09-22T14:30:00Z",
+    "updatedAt": "2025-09-23T11:20:00Z"
+  }
+]

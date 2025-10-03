@@ -1,0 +1,44 @@
+[
+  {
+    "id": "order_7c6b5a4d-3e2f-1a9c-8b7d-6e5f4a3b2c1d",
+    "customerId": "user_...",
+    "storeId": "store_1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+    "orderNumber": "R20250926-001",
+    "totalAmount": 7000,
+    "status": "PENDING_PAYMENT",
+    "shippingAddress": {
+      "name": "วิมล แอมป์หลอด",
+      "address": "123 หมู่ 4 ต.แสนสุข อ.เมือง จ.ชลบุรี 20130",
+      "phone": "081-234-5678"
+    },
+    "createdAt": "2025-09-26T16:00:00Z"
+  },
+  {
+    "id": "order_7c6b5a4d-3e2f-1a9c-8b7d-6e5f4a3b2c1d",
+    "customerId": "user_b8e7f2a1-c3d4-4e5f-8a9b-0c1d2e3f4a5b",
+    "storeId": "store_1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
+    "orderNumber": "R20250926-001",
+    "totalAmount": 7000,
+    "status": "SHIPPED",
+    "shippingAddress": {
+      "name": "สุดา ใจดี",
+      "address": "123/45 ซอยสุขุมวิท 101/1 บางนา กรุงเทพฯ 10260",
+      "phone": "081-987-6543"
+    },
+    "createdAt": "2025-09-26T16:00:00Z"
+  },
+  {
+    "id": "order_8a5c2b1e-9f0d-4a3c-8b2d-1e4f5a6b7c8d",
+    "customerId": "user_b8e7f2a1-c3d4-4e5f-8a9b-0c1d2e3f4a5b",
+    "storeId": "store_2c8b7f3b-5e4a-4d2c-8a9f-c1f3b2d1e0a9",
+    "orderNumber": "R20250927-002",
+    "totalAmount": 1250,
+    "status": "PROCESSING",
+    "shippingAddress": {
+      "name": "สุดา ใจดี",
+      "address": "123/45 ซอยสุขุมวิท 101/1 บางนา กรุงเทพฯ 10260",
+      "phone": "081-987-6543"
+    },
+    "createdAt": "2025-09-27T10:30:00Z"
+  }
+]

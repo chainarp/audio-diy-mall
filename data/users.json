@@ -1,0 +1,36 @@
+[
+  {
+    "id": "user_216d8b94-1a2b-4d47-9e36-ace843477891",
+    "facebookId": "10158888888888888",
+    "name": "สมชาย รักเครื่องเสียง",
+    "email": "somchai.audio@email.com",
+    "avatarUrl": "/images/avatars/somchai.jpg",
+    "role": "ADMIN",
+    "shippingAddress": null,
+    "createdAt": "2025-09-23T10:00:00Z"
+  },
+  {
+    "id": "user_a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+    "facebookId": "10219999999999999",
+    "name": "วิมล แอมป์หลอด",
+    "email": "wimon.tube@email.com",
+    "avatarUrl": "/images/avatars/wimon.jpg",
+    "role": "VENDOR",
+    "shippingAddress": null,
+    "createdAt": "2025-09-22T14:30:00Z"
+  },
+  {
+    "id": "user_b8e7f2a1-c3d4-4e5f-8a9b-0c1d2e3f4a5b",
+    "facebookId": "10328888888888888",
+    "name": "สุดา ใจดี",
+    "email": "suda.jaidee@email.com",
+    "avatarUrl": "/images/avatars/suda.jpg",
+    "role": "CUSTOMER",
+    "shippingAddress": {
+      "name": "สุดา ใจดี",
+      "address": "123/45 ซอยสุขุมวิท 101/1 บางนา กรุงเทพฯ 10260",
+      "phone": "081-987-6543"
+    },
+    "createdAt": "2025-09-25T11:00:00Z"
+  }
+]
